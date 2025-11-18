@@ -52,6 +52,11 @@ body {
     color: #343A40;
 }
 
+.nav-links li a.active {
+    color: #343A40;
+    font-weight: bold;
+}
+
 /* Translate Language CSS */
 .translate-box {
     margin-right: 30px;
@@ -66,8 +71,6 @@ body {
     color: #B85C89;
     cursor: pointer;
 }
-
-
 
 /* Hamburger button */
 .menu-btn {
@@ -135,8 +138,12 @@ body {
         font-weight: bold;
     }
 
+    .nav-links li a.active {
+        color: #B85C89;
+    }
+
     .nav-links li a:hover {
-        color: black;
+        color: #000;
     }
 
     .translate-box {

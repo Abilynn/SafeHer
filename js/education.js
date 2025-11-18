@@ -61,7 +61,3 @@ loadMoreBtn.addEventListener('click', loadArticles);
 
 // Initial load
 loadArticles();
-
-// Log total articles for debugging
-console.log(`Total articles available: ${articlesData.length}`);
-console.log(`Articles loaded: ${currentIndex}`);

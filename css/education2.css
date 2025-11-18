@@ -230,11 +230,10 @@ body {
     }
     
     .section-header1 h1 {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
     }
 }
 
-/* Mobile Portrait: 1 column */
 @media (max-width: 599px) {
     .articles-grid1 {
         grid-template-columns: 1fr;
@@ -242,7 +241,7 @@ body {
     }
     
     .section-header1 h1 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .article-image1 {
