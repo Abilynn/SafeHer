@@ -19,14 +19,20 @@ if (menuBtn && navLinks) {
     });
 }
 
-// active link
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a');
-    const current = window.location.pathname.split('/').pop();
+document.addEventListener('DOMContentLoaded', function () {
+    const navLinks = document.querySelectorAll('.nav-links a');
 
-    links.forEach(a => {
-        if (a.getAttribute('href') === current) {
-            a.classList.add('active');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
         }
     });
 });

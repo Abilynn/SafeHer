@@ -12,37 +12,27 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-<!-- TEAM NAVBAR -->
-<nav class="navbar">
-    <div class="nav-container">
-        
-        <!-- Logo -->
-        <div class="logo">
-            <img src="images/Logo 4.png" alt="SafeHer Logo">
+  <!-- NAVBAR-->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./images/Logo 4.png" alt="img">
+            </div>
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="education.html">Educational-Hub</a></li>
+                <li><a href="stories.html">Community-Stories</a></li>
+                <li><a href="about.html">About-US</a></li>
+                <div class="translate-box" id="google_translate_element"></div>
+            </ul>
+            <!-- Hamburger button for mobile -->
+            <button class="menu-btn" id="menu-btn">
+                <i class="fa fa-bars"></i>
+            </button>
         </div>
-
-        <!-- Navigation Links -->
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a class="active" href="resources.html">Resources</a></li>
-            <li><a href="education.html">Educational-Hub</a></li>
-            <li><a href="stories.html">Community-Stories</a></li>
-            <li><a href="about.html">About-US</a></li>
-
-            <!-- Language -->
-            <li class="translate-box">
-              <div id="google_translate_element"></div>
-            </li>
-        </ul>
-
-        <!-- Hamburger Menu -->
-        <button class="menu-btn" id="menu-btn">
-            <i class="fa fa-bars"></i>
-        </button>
-
-    </div>
-</nav>
+    </nav>
 
 <button class="quick-exit" onclick="quickExit()">Quick Exit</button>
 
@@ -223,18 +213,17 @@
     <i class="fa-solid fa-phone"></i>
   </a>
 
-  <!-- GOOGLE TRANSLATE SCRIPTS (REQUIRED) -->
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({
-        pageLanguage: 'en'
-      }, 'google_translate_element');
-    }
-  </script>
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                { pageLanguage: 'en' },
+                'google_translate_element'
+            );
+        }
+    </script>
 
-  <script type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <script src="js/resources-main.js"></script>
 
