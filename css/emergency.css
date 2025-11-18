@@ -1,0 +1,534 @@
+/* -----------------------------
+   GLOBAL STYLES
+--------------------------------*/
+:root {
+  --primary: #B85C89;
+  --secondary: #FCE8EF;
+  --text-dark: #343A40;
+  --emergency: #D9534F;
+  --white: #ffffff;
+
+  --heading-font: "Poppins", "Segoe UI", Arial, sans-serif;
+  --body-font: "Open Sans", Calibri, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+/* Utility container */
+.container {
+  width: 95%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* NAVBAR CSS*/
+.navbar {
+    background-color: #B85C89;
+    color: #fff;
+    padding: 10px 25px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+.logo img {
+    width: 60px;
+    height: 55px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    column-gap: 17px;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Verdana', sans-serif;
+    font-size: 15px;
+    transition: 0.5s;
+    font-weight: 450;
+}
+
+.nav-links li a:hover {
+    color: #343A40;
+}
+
+.nav-links li a.active {
+    color: #343A40;
+    font-weight: bold;
+}
+
+/* Translate Language CSS */
+.translate-box {
+    margin-right: 30px;
+    width: min-content;
+    margin-left: 20px;
+}
+
+.goog-te-gadget .goog-te-combo {
+    width: 140px;
+    padding: 6px;
+    border-radius: 10px;
+    color: #B85C89;
+    cursor: pointer;
+}
+
+/* Hamburger button */
+.menu-btn {
+    display: none;
+    background-color: none;
+    color: #B85C89;
+    font-size: 20px;
+}
+
+/* Responsive Navbar */
+@media (max-width: 850px) {
+    .logo img {
+        width: 50px;
+        height: 45px;
+    }
+
+    .nav-container {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .menu-btn {
+        display: block;
+        cursor: pointer;
+        z-index: 1200;
+        padding: 6px 10px;
+        font-size: 24px;
+    }
+
+    .menu-btn i {
+        transition: transform 220ms ease;
+    }
+
+    .menu-btn[aria-expanded="true"] i {
+        transform: rotate(90deg);
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        padding: 15px 0;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links.show {
+        display: block;
+        background: rgba(0, 0, 0, 0.32);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+    }
+
+    .nav-links li a.active {
+        color: #B85C89;
+    }
+
+    .nav-links li a:hover {
+        color: #B85C89;
+    }
+
+    .translate-box {
+        margin: auto;
+    }
+}
+
+/* -----------------------------
+   HERO SECTION
+--------------------------------*/
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  padding: 80px 0;
+
+  background-image: url("../images/emer-womaninpain.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  background-blend-mode: multiply;
+
+  background-color: rgba(184, 92, 137, 0.55);
+}
+
+.hero-inner {
+  max-width: 700px;
+  color: white;
+  padding-left: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.typed-heading {
+  font-family: var(--heading-font);
+  font-size: 2.8rem;
+  font-weight: 700;
+  opacity: 0;
+  animation: fadeInText 1.2s ease forwards;
+  letter-spacing: 1px;
+}
+
+.hero-sub {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #f8f8f8;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeInSoft 2.5s ease forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(20px); }
+}
+@keyframes fadeInSoft {
+  to { opacity: 1; }
+  from { opacity: 0; }
+}
+
+/* -----------------------------
+   ALERT BOX
+--------------------------------*/
+.alert-wrap {
+  margin: 50px 0;
+  animation: fadeInSoft 1.4s ease;
+}
+
+.alert-card {
+  background: var(--secondary);
+  padding: 25px;
+  border-left: 6px solid var(--emergency);
+  border-radius: 10px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+  animation: alertPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes alertPulse {
+  0% { box-shadow: 0 5px 14px rgba(0,0,0,0.12); }
+  50% { box-shadow: 0 6px 18px rgba(217,83,79,0.4); }
+  100% { box-shadow: 0 5px 14px rgba(0,0,0,0.12); }
+}
+
+.alert-card strong {
+  font-size: 1.2rem;
+  color: var(--emergency);
+}
+
+/* -----------------------------
+   SECTION HEADINGS
+--------------------------------*/
+.section-title {
+  font-family: var(--heading-font);
+  font-size: 2rem;
+  margin-bottom: 10px;
+  margin-top: 60px;
+  color: var(--primary);
+  letter-spacing: 0.5px;
+}
+
+.section-intro {
+  max-width: 600px;
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+/* -----------------------------
+   PREMIUM CARD GRID
+--------------------------------*/
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 45px;
+  margin-top: 40px;
+}
+
+.line-card {
+  background: rgba(255, 255, 255, 0.55);           
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+  padding: 25px;
+  position: relative;
+  overflow: hidden;                                 
+
+  border: 1px solid rgba(184, 92, 137, 0.15);    
+  
+  box-shadow:
+    inset 0 0 6px rgba(255,255,255,0.2),           
+    0 8px 24px rgba(0, 0, 0, 0.12),                
+    0 4px 10px rgba(184, 92, 137, 0.12);           
+
+  transition: transform .45s cubic-bezier(.25,.8,.25,1),
+              box-shadow .45s ease,
+              border-color .45s ease,
+              background .45s ease;
+}
+
+/* CARD HOVER */
+.line-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(184, 92, 137, 0.35);
+
+  box-shadow:
+    inset 0 0 14px rgba(255,255,255,0.15),        
+    0 18px 36px rgba(0, 0, 0, 0.18),
+    0 8px 24px rgba(184, 92, 137, 0.2);
+}
+
+.line-card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -50%;
+  width: 200%;
+  height: 6px;
+  border-radius: 6px 6px 0 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(184, 92, 137, 0.3) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(184, 92, 137, 0.3) 100%
+  );
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(-2px);
+}
+
+.line-card:hover::before {
+  opacity: 1;
+  animation: shimmer 1.6s infinite linear;
+  transform: translateY(0);
+}
+
+/* SHIMMER KEYFRAME */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* FLAG IMAGE */
+.flag {
+  width: 75px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.line-card:hover .flag {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.22);
+}
+
+/* TITLE */
+.card-content h3 {
+  font-family: var(--heading-font);
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+  color: #222;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.line-card:hover .card-content h3 {
+  color: var(--primary);
+}
+
+/* PHONE TEXT */
+.phone {
+  font-weight: 600;
+  color: #444;
+  margin-top: 4px;
+  transition: color 0.3s ease;
+}
+
+.line-card:hover .phone {
+  color: #B85C89;
+}
+
+/* CALL BUTTON */
+.call-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 22px;
+
+  background-color: #B85C89;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .3px;
+  font-family: var(--heading-font);
+
+  box-shadow: 0 3px 14px rgba(217, 83, 79, 0.25);
+  transition: transform .3s ease, box-shadow .3s ease, background .3s ease;
+}
+
+.call-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(217, 83, 79, 0.45);
+  background: linear-gradient(to right, #c74441, #b73633);
+}
+
+.line-card::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .6s ease;
+  pointer-events: none;
+}
+
+.line-card:hover::after {
+  opacity: 1;
+}
+
+
+/* -----------------------------
+   PRIVACY NOTE
+--------------------------------*/
+.privacy-note {
+  margin: 60px 0;
+}
+
+.note {
+  font-size: 0.95rem;
+  padding: 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* -----------------------------
+   RESPONSIVE (Mobile)
+--------------------------------*/
+@media (max-width: 768px) {
+  .typed-heading {
+    font-size: 2.2rem;
+  }
+  .hero {
+    padding: 60px 20px;
+  }
+}
+
+/* ---------------------------------------------
+   DESKTOP MODE ONLY (≥1024px OR Mobile Desktop Site)
+---------------------------------------------- */
+@media (min-width: 1024px) {
+
+  body {
+    min-width: 1200px; 
+    overflow-x: auto;
+  }
+
+  .hero {
+    animation: heroFade 1.5s ease-out forwards;
+  }
+
+  @keyframes heroFade {
+    from { opacity: 0; transform: scale(1.03); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .alert-card {
+    border: 2px solid var(--emergency);
+    animation: alertPop 0.6s ease-out;
+  }
+
+  @keyframes alertPop {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  section {
+    margin-bottom: 60px;
+  }
+}
+
+/* FOOTER CSS */
+.footer {
+    background-color: #343A40;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    margin: 0;
+}
+
+.footer-text {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.social-links a {
+    margin: 0 10px;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #B85C89;
+}

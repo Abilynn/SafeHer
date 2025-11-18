@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+}
+
+.container1 {
+    max-width: 1400px;
+    margin: 50px auto;
+}
+
+.section-header1 {
+    margin-bottom: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-header1 h1 {
+    font-size: 2rem;
+    color: #B85C89;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header1 h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #E2007A, #8A3FFC);
+}
+
+.section-header1 p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+    padding: 0 20px;
+    max-width: 900px;
+    text-align: center;
+}
+
+/* ===== GRID LAYOUT ===== */
+.articles-grid1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
+    gap: 20px;
+    padding: 10px;
+}
+
+.article-card1 {
+    /* Remove flex properties - not needed with grid */
+    background: #FCE8EF;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideIn 0.6s ease forwards;
+}
+.phone {
+    position: fixed;
+    right: 1px;
+    bottom: 20px;
+    z-index: 9999;
+    cursor: pointer;
+    border-radius: 40%;
+    background: #B85C89;
+    padding: 10px;
+}
+
+
+.phone img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.phone:hover img {
+    transform: scale(1.1) rotate(15deg);
+}
+.article-card1:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.article-card1:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.article-card1:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.article-card1:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.article-card1:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.article-card1:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.article-card1:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.article-card1:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.article-card1:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.article-image1 {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.article-card1:hover .article-image1 {
+    transform: scale(1.05);
+}
+
+.article-content1 {
+    padding: 20px;
+}
+
+.article-content1 h4 {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.article-card1:hover .article-content1 h4 {
+    color: #B85C89;
+}
+
+.article-date1 {
+    font-size: 0.95rem;
+    color: #999;
+    margin-bottom: 15px;
+}
+
+.article-excerpt1 {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.load-more-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.load-more-btn {
+    background: #B85C89;
+    color: white;
+    border: none;
+    padding: 15px 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(226, 0, 122, 0.3);
+}
+
+.load-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(226, 0, 122, 0.4);
+}
+
+.load-more-btn:active {
+    transform: translateY(0);
+}
+
+.load-more-btn.hidden {
+    display: none;
+}
+
+/* ===== RESPONSIVE GRID BREAKPOINTS ===== */
+
+/* Tablet: 3 columns */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .articles-grid1 {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Mobile Landscape: 2 columns */
+@media (min-width: 600px) and (max-width: 767px) {
+    .articles-grid1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .article-image1 {
+        height: 200px;
+    }
+    
+    .section-header1 h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Mobile Portrait: 1 column */
+@media (max-width: 599px) {
+    .articles-grid1 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .section-header1 h1 {
+        font-size: 2rem;
+    }
+    
+    .article-image1 {
+        height: 250px;
+    }
+}
