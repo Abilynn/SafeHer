@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   successModal.innerHTML = `
   <div class="modal-content">
     <div class="success-content">
-      <i class="fa-solid fa-circle-check" style="color:#28A745; font-size:2.5rem;margin-bottom:1rem;"></i>
+      <i class="fa-solid fa-circle-check" style="color:#28A745; font-size:2.0rem;margin-bottom:1rem;"></i>
       <h2>Thank You for Your Courage</h2>
       <p>Your story has been submitted successfully.<br>
          We’ll review it with care and may feature it here to inspire others — 

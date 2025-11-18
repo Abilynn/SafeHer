@@ -151,12 +151,14 @@ body {
 .image-text {
   color: white; /* Text fill color */
   -webkit-text-stroke: 0.2px #343a40; /* Outline width and color */
+  font-size: 25px;
 }
 
 .image h1 {
   top: 55%;
   font-weight: bolder;
   color: #ffffff;
+  text-align: center;
 }
 
 .image .button_2 {
@@ -166,8 +168,8 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 15px 20px;
-  font-size: 18px;
+  padding: 10px 20px;
+  font-size: 15px;
 }
 
 .button_2:hover {
@@ -594,12 +596,20 @@ select {
 
   .image-text {
     text-align: center;
+    font-size: 18px;
+    margin-top: 40px;
+
   }
 
   .image h1 {
     /* font-size: 1.5rem;
   padding: 0 10px; */
     text-align: center;
+  }
+
+  .image .button_2 {
+    padding: 10px 15px;
+    font-size: 15px;
   }
 
   .new-form i {
@@ -637,11 +647,6 @@ select {
 @media only screen and (min-width: 480px) and (max-width: 768px) {
   /* Apply tablet-specific styles here */
 
-  .image .button_2 {
-    padding: 20px 30px;
-    font-size: 25px;
-  }
-
   .g2 {
     float: left;
     display: none;
@@ -675,12 +680,19 @@ select {
  
   .image-text {
     text-align: center;
+    font-size: 20px;
+    margin-top: 40px;
   }
 
   .image h1 {
     /* font-size: 1.5rem;
   padding: 0 10px; */
     text-align: center;
+  }
+
+  .image .button_2 {
+    padding: 15px 20px;
+    font-size: 15px;
   }
 
   .new-form i {
@@ -741,6 +753,23 @@ select {
 
     .menu-btn[aria-expanded="true"] i {
         transform: rotate(90deg);
+    }
+
+    .image-text {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 30px;
+  }
+
+    .image h1 {
+      /* font-size: 1.5rem;
+    padding: 0 10px; */
+      text-align: center;
+    }
+
+    .image .button_2 {
+      padding: 15px 20px;
+      font-size: 15px;
     }
 
     .nav-links {

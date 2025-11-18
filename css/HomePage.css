@@ -664,6 +664,11 @@ body {
     box-shadow: 0 5px 15px rgba(184, 92, 137, 0.3);
 }
 
+.about-text a.learn-more {
+    margin-top: 15px;
+    padding: 8px 20px;
+}
+
 /* Improved Responsive Design for About Section */
 @media (max-width: 900px) {
     .about-content {
