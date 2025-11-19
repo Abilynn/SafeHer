@@ -1,25 +1,27 @@
 const menuBtn = document.getElementById("menu-btn");
-  const navLinks = document.getElementById("nav-links");
+const navLinks = document.getElementById("nav-links");
 
-  if (menuBtn && navLinks) {
-      menuBtn.setAttribute("aria-expanded", "false");
-      menuBtn.setAttribute("type", "button");
+if (menuBtn && navLinks) {
+    menuBtn.setAttribute("aria-expanded", "false");
+    menuBtn.setAttribute("type", "button");
 
-      const menuIcon = menuBtn.querySelector("i");
+    const menuIcon = menuBtn.querySelector("i");
 
-      menuBtn.addEventListener("click", () => {
-          const open = navLinks.classList.toggle("show");
+    menuBtn.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("show");
 
-          if (menuIcon) {
-              menuIcon.classList.toggle("fa-bars", !open);
-              menuIcon.classList.toggle("fa-times", open);
-          }
+        if (menuIcon) {
+            menuIcon.classList.toggle("fa-bars", !open);
+            menuIcon.classList.toggle("fa-times", open);
+        }
 
-          menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      });
-  }
+        menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
@@ -34,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
-    });
+  });
 
   const form = document.getElementById("SafeHerForm");
   const submitBtn = document.querySelector(".submit-btn");
@@ -42,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("responseModal");
   const modalMessage = document.getElementById("modalMessage");
 
-    // Anonymous toggle elements
+  // Anonymous toggle elements
   const anonymousSwitch = document.getElementById("anonymousSwitch");
   const identifiedFields = document.getElementById("identifiedFields");
   const anonymousFields = document.getElementById("anonymousFields");
@@ -76,31 +78,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Spinner helper
+  //showspinner
   const showSpinner = (show = true) => {
     spinner.style.display = show ? "block" : "none";
   };
 
-  // File handling
+  //file handling
   let storedFiles = [];
   const input = document.getElementById("file-input");
   const fileList = document.getElementById("file-list");
 
   const updateFileList = () => {
     fileList.innerHTML = "";
+
     storedFiles.forEach((file, index) => {
       const li = document.createElement("li");
       li.classList.add("file-item");
+
       li.innerHTML = `
         <span class="file-name">${file.name}</span>
         <button type="button" class="remove-btn">Remove</button>
       `;
 
       // Remove button
-      li.querySelector(".remove-btn").addEventListener("click", () => {
+      li.querySelector(".remove-btn").addEventListener("click", (e) => {
+        e.preventDefault();
         storedFiles.splice(index, 1);
         updateFileList();
       });
+
       fileList.appendChild(li);
     });
   };
@@ -111,13 +117,15 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.value = "";
   });
 
-  // Modal function
+  //modal
   const showModal = (message = "", type = "success") => {
     modalMessage.textContent = message;
+
     const borderColor = type === "success" ? "#28A745" : "#D9534F";
 
     document.querySelector(".modal-box").style.borderLeftColor = borderColor;
     modalMessage.style.color = borderColor;
+
     modal.style.display = "flex";
 
     setTimeout(() => {
@@ -125,9 +133,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 2000);
   };
 
-  // Form submit handler
+  //form submit
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
     showSpinner(true);
@@ -146,17 +155,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (resp.ok) {
         showModal("Your report has been submitted successfully!", "success");
+
         form.reset();
         storedFiles = [];
         updateFileList();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
 
-      // Reset anonymous UI
-      if (anonymousSwitch.checked) {
-        anonymousSwitch.checked = false;
-        identifiedFields.style.display = "block";
-        anonymousFields.style.display = "none";
-      }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        // Reset anonymous UI
+        if (anonymousSwitch.checked) {
+          anonymousSwitch.checked = false;
+          identifiedFields.style.display = "block";
+          anonymousFields.style.display = "none";
+        }
 
       } else {
         let errText = "Error sending report. Please try again.";
@@ -182,11 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-    /* -----------------------------------
+  /* -----------------------------------
       HIDE MODAL ON OUTSIDE CLICK
   ------------------------------------- */
   modal.addEventListener("click", (ev) => {
     if (ev.target === modal) modal.style.display = "none";
   });
-
 });

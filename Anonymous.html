@@ -9,52 +9,47 @@
 </head>
 <body>
      <!-- NAVBAR-->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo">
-                <img src="images/Logo 4.png" alt="img">
-            </div>
-            <!-- Navigation Links -->
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="resources.html">Resources</a></li>
-                <li><a href="education.html">Educational-Hub</a></li>
-                <li><a href="stories.html">Community-Stories</a></li>
-                <li><a href="about.html">About-US</a></li>
-                <div class="translate-box" id="google_translate_element"></div>
-            </ul>
-            <!-- Hamburger button for mobile -->
-            <button class="menu-btn" id="menu-btn">
-                <i class="fa fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-    <div id="google_translate_element"></div>
-
-        <section class="form-container">
-            <div class="info">
-                <i class="fa-solid fa-shield-halved shield"></i>
-                <h2>Anonymous Report</h2>
-                <p>Your identity is completely protected. This form is confidential and secure.</p>
-            </div>
-            <div class="about-report">
-                <div class="private-info">
-                    <i class="fa-solid fa-lock"></i>
-                    <div class="private-text">
-                        <h4>Complete Privacy Guaranteed</h4>
-                        <p>We do not collect IP adresses, or store any identifying information when reporting anonymously. You can report without fear.</p>
+            <nav class="navbar">
+                <div class="nav-container">
+                    <div class="logo">
+                        <img src="images/Logo.png" alt="img">
                     </div>
+                    <!-- Navigation Links -->
+                    <ul class="nav-links" id="nav-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="education.html">Educational-Hub</a></li>
+                        <li><a href="stories.html">Community-Stories</a></li>
+                        <li><a href="about.html">Contact-US</a></li>
+                        <div class="translate-box" id="google_translate_element"></div>
+                    </ul>
+                    <!-- Hamburger button for mobile -->
+                    <button class="menu-btn" id="menu-btn">
+                        <i class="fa fa-bars"></i>
+                    </button>
                 </div>
-
-                <div class="report-form">
-                    <div class="report-info">
-                        <h2>Submit Your Report</h2>
-                        <p class="subtitle">Share as much or as little as you're comfortable with. Every detail helps us understand your situation.</p>
-                    </div>
-                    <form id="SafeHerForm" action="https://formspree.io/f/xrbjplnk" method="POST" enctype="multipart/form-data">
-
-                        <!-- Anonymous Toggle--> 
-                            <div class="toggle-container"> 
+            </nav>
+            <div id="google_translate_element"></div> 
+            <section class="form-container"> 
+                <div class="info"> <i class="fa-solid fa-shield-halved shield"></i> 
+                    <h2>Anonymous Report</h2> <p>Your identity is completely protected. This form is confidential and secure.</p> 
+                </div> 
+                <div class="about-report"> 
+                    <div class="private-info"> 
+                        <i class="fa-solid fa-lock"></i> 
+                        <div class="private-text"> 
+                            <h4>Complete Privacy Guaranteed</h4> 
+                            <p>We do not collect IP adresses, or store any identifying information when reporting anonymously. You can report without fear.</p> 
+                        </div> 
+                    </div> 
+                    <div class="report-form"> 
+                        <div class="report-info"> 
+                            <h2>Submit Your Report</h2> 
+                            <p class="subtitle">Share as much or as little as you're comfortable with. Every detail helps us understand your situation.</p> 
+                        </div> 
+                        <form id="SafeHerForm" action="https://formspree.io/f/xrbjplnk" method="POST" enctype="multipart/form-data"> 
+                            <!-- Anonymous Toggle--> 
+                             <div class="toggle-container"> 
                                 <span class="toggle-label">Report Anonymously</span> 
                                 <label class="switch"> 
                                     <input type="checkbox" id="anonymousSwitch"> 
@@ -62,98 +57,82 @@
                                 </label> 
                             </div> 
                             <!-- Fields that are hidden when anonymous is ON --> 
-
-                        <div id="identifiedFields">
-                            <label>Your Name</label><br>
-                            <input type="text" name="user_name" placeholder="Enter your name" required><br>
-
-                            <label>Your Age (Optional)</label><br>
-                            <input type="number" name="user_age" placeholder="E.g. 25"><br>
+                             
+                            <div id="identifiedFields"> 
+                                <label>Your Name</label><br> 
+                                <input type="text" name="user_name" placeholder="Enter your name" required><br> 
+                                <label>Your Age (Optional)</label><br> 
+                                <input type="number" name="user_age" placeholder="E.g. 25"><br>  
+                            </div> 
                             <!-- Fields that show ONLY when anonymous is ON --> 
-                            <div id="anonymousFields" style="display:none;">
-                            </div>
-
+                            <div id="anonymousFields" style="display:none;"> 
+                                 
+                            </div> 
                             <!-- Rest of the form fields remain the same --> 
-                            <label>Your Phone Number</label><br>
-                            <input type="tel" name="user_phone" placeholder="e.g. +2348123456789" required><br>
-
-                            <label>Your Location</label><br>
-                            <input type="text" name="user_location" id="locationInput" placeholder="please enter precise location" required><br>
-
-                            <label>Emergency Contact Name</label><br>
-                            <input type="text" name="emergency_contact_name" placeholder="Enter an emergency contact name we can reach out to when needed" required><br>
-
-                            <label>Emergency Contact Phone Number</label><br>
+                            <label>Your Phone Number</label><br> 
+                            <input type="tel" name="user_phone" placeholder="e.g. +2348123456789" required><br> 
+                            <label>Your Location</label><br> 
+                            <input type="text" name="user_location" id="locationInput" placeholder="please enter precise location" required><br> <label>Emergency Contact Name</label><br> 
+                            <input type="text" name="emergency_contact_name" placeholder="Enter an emergency contact name we can reach out to when needed" required><br> <label>Emergency Contact Phone Number</label><br> 
                             <input type="tel" name="emergency_contact_phone" placeholder="Enter an emergency contact phone number we can reach out to when needed" required><br>
-                        </div>
+                            <label>Type of Incident</label><br> 
+                            <input type="text" name="incident_type" placeholder="e.g. Domestic violence, harassment, discrimination"><br> 
+                            <label>Explain what is happening</label><br> 
+                            <textarea name="complaint" rows="6" placeholder="Tell us as much, we're here to listen" required></textarea><br> 
+                            <label>Upload Evidence (Images, Videos, Audios if available)</label><br> <input type="file" name="attachments" id="file-input" accept="image/*,video/*,audio/*" multiple><br> 
+                            <ul id="file-list"></ul> 
+                            <div class="emergency-info"> 
+                                <i class="fa-solid fa-circle-exclamation"></i> 
+                                <div class="emergency-text"> 
+                                    <h4>In immediate danger?</h4> 
+                                    <p>If you are in immediate danger. please visit our <a href="#">Emergency page </a>for immediate help.</p> 
+                                </div> 
+                            </div> 
+                            <button type="submit" class="submit-btn">Submit Report</button>
+                            <p id="responseMessage" class="response"></p> 
+                        </form> 
+                    </div> 
+                </div> 
+            </section> 
+        </div> 
+        <!-- single LOADING SPINNER (hidden by default) --> 
+        <div id="loadingSpinner" class="spinner" aria-hidden="true"></div> 
+        <!-- single RESPONSE MODAL (hidden by default) --> 
+        <div id="responseModal" class="modal" role="alert" aria-hidden="true" aria-live="polite"> 
+            <div class="modal-box"> 
+                <p id="modalMessage" class="modal-text"></p> 
+            </div> 
+        </div> 
+        <!-- FOOTER  -->
+        <footer class="footer">
+            <div class="footer-container">
 
-                        <label>Type of Incident</label><br>
-                        <input type="text" name="incident_type" placeholder="e.g. Domestic violence, harassment, discrimination"><br>
+                <p class="footer-text">
+                    SafeHer — Empowering Girls & Women.</p>
 
-                        <label>Explain what is happening</label><br>
-                        <textarea name="complaint" rows="6" placeholder="Tell us as much, we're here to listen" required></textarea><br>
-
-                        <label>Upload Evidence (Images, Videos, Audios if available)</label><br>
-                        <input type="file" name="attachments" id="file-input" accept="image/*,video/*,audio/*" multiple><br>
-                        <ul id="file-list"></ul>
-
-                        <div class="emergency-info">
-                            <i class="fa-solid fa-circle-exclamation"></i>
-                            <div class="emergency-text">
-                                <h4>In immediate danger?</h4>
-                                <p>If you are in immediate danger. please visit our <a href="emergencyCallLine.html">Emergency page </a>for immediate help.</p>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="submit-btn">Submit Report</button>
-                        <p id="responseMessage" class="response"></p>
-                    </form>
-
-                    
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedln"></i></a>
                 </div>
+
+                <p class="copyright">© 2025 SafeHer. All Rights Reserved.</p>
             </div>
-        </section>
-    </div>
-    <!-- single LOADING SPINNER (hidden by default) -->
-    <div id="loadingSpinner" class="spinner" aria-hidden="true"></div>
+        </footer>
 
-    <!-- single RESPONSE MODAL (hidden by default) -->
-    <div id="responseModal" class="modal" role="alert" aria-hidden="true" aria-live="polite">
-        <div class="modal-box">
-            <p id="modalMessage" class="modal-text"></p>
-        </div>
-    </div>
+        <!-- Google Translate Script -->
+        <script type="text/javascript">
+            function googleTranslateElementInit() {
+                new google.translate.TranslateElement(
+                    { pageLanguage: 'en' },
+                    'google_translate_element'
+                );
+            }
+        </script>
 
-    <!-- FOOTER  -->
-    <footer class="footer">
-        <div class="footer-container">
-
-            <p class="footer-text">
-                SafeHer — Empowering Girls & Women.</p>
-
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-
-            <p class="copyright">© 2025 SafeHer. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Google Translate Script -->
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                { pageLanguage: 'en' },
-                'google_translate_element'
-            );
-        }
-    </script>
-
-    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
     <script src="js/anonymous-script.js"></script>
   
