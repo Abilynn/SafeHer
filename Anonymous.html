@@ -39,10 +39,10 @@
             </div>
             <div class="about-report">
                 <div class="private-info">
-                    <i class="fa-solid fa-shield-heart"></i>
+                    <i class="fa-solid fa-lock"></i>
                     <div class="private-text">
-                        <h4>Your Protection is our Priority</h4>
-                        <p>Your voice matters. We've built this platform to keep you safe, protected, and able to report without fear.</p>
+                        <h4>Comlete Privacy Guaranteed/h4>
+                        <p>We do not collect IP adresses, or store any identifying information when reporting anonymously. You can report without fear.</p>
                     </div>
                 </div>
 
@@ -51,16 +51,29 @@
                         <h2>Submit Your Report</h2>
                         <p class="subtitle">Share as much or as little as you're comfortable with. Every detail helps us understand your situation.</p>
                     </div>
-                    <form id="SafeHerForm" action="https://formspree.io/f/mwpavgon" method="POST" enctype="multipart/form-data">
+                    <form id="SafeHerForm" action="https://formspree.io/f/xrbjplnk" method="POST" enctype="multipart/form-data">
 
-                        <!-- Fields that are hidden when anonymous is ON -->
+                        <!-- Anonymous Toggle--> 
+                            <div class="toggle-container"> 
+                                <span class="toggle-label">Report Anonymously</span> 
+                                <label class="switch"> 
+                                    <input type="checkbox" id="anonymousSwitch"> 
+                                    <span class="toggle-slider"></span> 
+                                </label> 
+                            </div> 
+                            <!-- Fields that are hidden when anonymous is ON --> 
+
                         <div id="identifiedFields">
                             <label>Your Name</label><br>
                             <input type="text" name="user_name" placeholder="Enter your name" required><br>
 
                             <label>Your Age (Optional)</label><br>
                             <input type="number" name="user_age" placeholder="E.g. 25"><br>
+                            <!-- Fields that show ONLY when anonymous is ON --> 
+                            <div id="anonymousFields" style="display:none;">
+                            </div>
 
+                            <!-- Rest of the form fields remain the same --> 
                             <label>Your Phone Number</label><br>
                             <input type="tel" name="user_phone" placeholder="e.g. +2348123456789" required><br>
 
@@ -74,7 +87,6 @@
                             <input type="tel" name="emergency_contact_phone" placeholder="Enter an emergency contact phone number we can reach out to when needed" required><br>
                         </div>
 
-                        <!-- Rest of the form fields remain the same -->
                         <label>Type of Incident</label><br>
                         <input type="text" name="incident_type" placeholder="e.g. Domestic violence, harassment, discrimination"><br>
 

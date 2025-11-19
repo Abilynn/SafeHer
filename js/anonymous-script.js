@@ -42,6 +42,40 @@ document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("responseModal");
   const modalMessage = document.getElementById("modalMessage");
 
+    // Anonymous toggle elements
+  const anonymousSwitch = document.getElementById("anonymousSwitch");
+  const identifiedFields = document.getElementById("identifiedFields");
+  const anonymousFields = document.getElementById("anonymousFields");
+
+  //anonymous toggle
+  anonymousSwitch.addEventListener("change", () => {
+    if (anonymousSwitch.checked) {
+      identifiedFields.style.display = "none";
+      anonymousFields.style.display = "block";
+
+      // Remove required from identified fields
+      identifiedFields.querySelectorAll("input").forEach(input => {
+        input.required = false;
+      });
+
+      // Optional: add required for anonymous fields
+      anonymousFields.querySelectorAll("input").forEach(input => {
+        input.required = false;
+      });
+
+    } else {
+      identifiedFields.style.display = "block";
+      anonymousFields.style.display = "none";
+
+      // Restore required attributes
+      identifiedFields.querySelectorAll("input").forEach(input => {
+        if (input.hasAttribute("data-required")) {
+          input.required = true;
+        }
+      });
+    }
+  });
+
   // Spinner helper
   const showSpinner = (show = true) => {
     spinner.style.display = show ? "block" : "none";
@@ -61,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <span class="file-name">${file.name}</span>
         <button type="button" class="remove-btn">Remove</button>
       `;
+
+      // Remove button
       li.querySelector(".remove-btn").addEventListener("click", () => {
         storedFiles.splice(index, 1);
         updateFileList();
@@ -79,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const showModal = (message = "", type = "success") => {
     modalMessage.textContent = message;
     const borderColor = type === "success" ? "#28A745" : "#D9534F";
+
     document.querySelector(".modal-box").style.borderLeftColor = borderColor;
     modalMessage.style.color = borderColor;
     modal.style.display = "flex";
@@ -113,13 +150,30 @@ document.addEventListener("DOMContentLoaded", () => {
         storedFiles = [];
         updateFileList();
         window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Reset anonymous UI
+      if (anonymousSwitch.checked) {
+        anonymousSwitch.checked = false;
+        identifiedFields.style.display = "block";
+        anonymousFields.style.display = "none";
+      }
+
       } else {
-        showModal("Error sending report. Please try again.", "error");
+        let errText = "Error sending report. Please try again.";
+
+        try {
+          const data = await resp.json();
+          if (data && data.error) errText = `${data.error}`;
+        } catch (_) {}
+
+        showModal(errText, "error");
       }
 
     } catch (err) {
       showSpinner(false);
       showModal("Network error. Check your connection.", "error");
+      console.error(err);
+
     } finally {
       setTimeout(() => {
         submitBtn.disabled = false;
@@ -128,6 +182,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+    /* -----------------------------------
+      HIDE MODAL ON OUTSIDE CLICK
+  ------------------------------------- */
   modal.addEventListener("click", (ev) => {
     if (ev.target === modal) modal.style.display = "none";
   });
